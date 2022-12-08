@@ -2,7 +2,10 @@ import streamlit as st
 import leafmap.foliumap as leafmap
 import geemap.foliumap as geemap
 import ee
-geemap.ee_initialize()
+
+ee.Authenticate()
+ee.Initialize()
+
 import geemap.colormaps as cm
 
 st.set_page_config(layout="wide")
