@@ -7,6 +7,7 @@ st.sidebar.title("About")
 st.sidebar.info(
     """
     Web App URL: <https://sm-potter-streamlit-fire-streamlit-app-7sy8c9.streamlit.app/>
+    
     GitHub repository: <https://github.com/sm-potter/streamlit-fire>
     """
 )

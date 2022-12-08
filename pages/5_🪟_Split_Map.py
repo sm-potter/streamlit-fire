@@ -3,19 +3,22 @@ import leafmap.foliumap as leafmap
 
 st.set_page_config(layout="wide")
 
+
 st.sidebar.title("About")
+
 st.sidebar.info(
     """
-    Web App URL: <https://geospatial.streamlitapp.com>
-    GitHub repository: <https://github.com/giswqs/streamlit-geospatial>
+    Web App URL: <https://sm-potter-streamlit-fire-streamlit-app-7sy8c9.streamlit.app/>
+    
+    GitHub repository: <https://github.com/sm-potter/streamlit-fire>
     """
 )
 
 st.sidebar.title("Contact")
 st.sidebar.info(
     """
-    Qiusheng Wu: <https://wetlands.io>
-    [GitHub](https://github.com/giswqs) | [Twitter](https://twitter.com/giswqs) | [YouTube](https://www.youtube.com/c/QiushengWu) | [LinkedIn](https://www.linkedin.com/in/qiushengwu)
+    Stefano Potter: <spotter@woodwellclimate.org>
+    [GitHub](https://github.com/sm-potter) 
     """
 )
 
