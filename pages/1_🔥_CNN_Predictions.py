@@ -2,6 +2,9 @@ import streamlit as st
 import leafmap.foliumap as leafmap
 import geemap.foliumap as geemap
 import ee
+ee.Authenticate()
+ee.Initialize()
+
 import geemap.colormaps as cm
 
 st.set_page_config(layout="wide")
@@ -27,10 +30,7 @@ st.sidebar.info(
 
 st.title("Alaska CNN Predictions")
 
-
 Map = geemap.Map()
-
-esa = ee.ImageCollection("ESA/WorldCover/v100").first()
 
 #read in the predictions and lfdb ground truth
 dnbr = ee.ImageCollection("projects/gee-serdp-upload/assets/mtbs_predictions").select('b7')
