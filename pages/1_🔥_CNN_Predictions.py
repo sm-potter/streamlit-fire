@@ -2,9 +2,7 @@ import streamlit as st
 import leafmap.foliumap as leafmap
 import geemap.foliumap as geemap
 import ee
-ee.Authenticate()
-ee.Initialize()
-
+geemap.ee_initialize(auth_mode='gcloud')
 import geemap.colormaps as cm
 
 st.set_page_config(layout="wide")
