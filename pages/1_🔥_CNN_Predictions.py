@@ -3,8 +3,10 @@ import leafmap.foliumap as leafmap
 import geemap.foliumap as geemap
 import ee
 
-ee.Authenticate()
-ee.Initialize()
+# ee.Authenticate()
+# ee.Initialize()
+# geemap.ee_authenticate()
+# geemap.ee_initialize(auth_mode='gcloud')
 
 import geemap.colormaps as cm
 
