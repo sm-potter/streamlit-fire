@@ -1,17 +1,19 @@
-bokeh==2.4.3
-earthengine_api==0.1.331
-ee==0.4
-Fiona==1.8.22
-folium==0.12.1.post1
-geemap==0.18.0
-geopandas==0.12.1
-leafmap==0.14.0
-palettable==3.3.0
-pandas==1.5.2
-Pillow==9.3.0
-pydeck==0.8.0b4
-requests==2.28.1
-Shapely==1.8.5.post1
-streamlit==1.15.1
-streamlit_bokeh_events==0.1.2
-tropycal==0.6
+--find-links=https://girder.github.io/large_image_wheels GDAL
+# cartopy
+geemap
+geopandas
+jupyter-server-proxy
+keplergl
+leafmap
+localtileserver
+nbserverproxy
+owslib
+palettable
+plotly
+streamlit==1.12.2
+streamlit-bokeh-events
+streamlit-folium
+streamlit-keplergl
+tropycal
+# git+https://github.com/giswqs/leafmap
+# git+https://github.com/giswqs/geemap
