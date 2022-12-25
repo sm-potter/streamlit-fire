@@ -1,15 +1,15 @@
 import ee
 import streamlit as st
 import geemap.foliumap as geemap
-# import ee
+import ee
 # import os
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/spotter/Desktop/gee-serdp-upload-7cd81da3dc69.json"
+# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/spotter/Desktop/gee-serdp-upload-7cd81da3dc69.json"
 
-service_account = 'gee-serdp-upload@appspot.gserviceaccount.com'
-credentials = ee.ServiceAccountCredentials(service_account, "/Users/spotter/Desktop/gee-serdp-upload-7cd81da3dc69.json")
-ee.Initialize(credentials)#h high-volume end-point
-ee.Initialize(opt_url='https://earthengine-highvolume.googleapis.com')
+# service_account = 'gee-serdp-upload@appspot.gserviceaccount.com'
+# credentials = ee.ServiceAccountCredentials(service_account, "/Users/spotter/Desktop/gee-serdp-upload-7cd81da3dc69.json")
+# ee.Initialize(credentials)#h high-volume end-point
+# ee.Initialize(opt_url='https://earthengine-highvolume.googleapis.com')
 
 st.set_page_config(layout="wide")
 
