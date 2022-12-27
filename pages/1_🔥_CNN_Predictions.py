@@ -17,11 +17,11 @@ st.set_page_config(layout="wide")
 warnings.filterwarnings("ignore")
 
 
-# @st.cache(persist=True)
-# def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
-#     geemap.ee_initialize(token_name=token_name)
+@st.cache(persist=True)
+def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
+    geemap.ee_initialize(token_name=token_name)
 
-# ee_authenticate(token_name="EARTHENGINE_TOKEN")
+ee_authenticate(token_name="EARTHENGINE_TOKEN")
 
 
 year = st.selectbox(
