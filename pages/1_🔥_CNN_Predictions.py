@@ -8,7 +8,6 @@ import warnings
 # ee.Authenticate()
 # ee.Initialize()
 # geemap.ee_authenticate()
-# geemap.ee_initialize(auth_mode='gcloud')
 
 import geemap.colormaps as cm
 
@@ -22,6 +21,7 @@ def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
     geemap.ee_initialize(token_name=token_name)
 
 ee_authenticate(token_name="EARTHENGINE_TOKEN")
+geemap.ee_initialize(auth_mode='gcloud')
 
 
 year = st.selectbox(
