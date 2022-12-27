@@ -83,27 +83,42 @@ Map = geemap.Map()
 #read in the predictions and lfdb ground truth
 in_collection = ee.ImageCollection("projects/gee-serdp-upload/assets/mtbs_predictions")
 
-red = in_collection = in_collection.select('b1')
-green = in_collection = in_collection.select('b2')
-blue = in_collection = in_collection.select('b3')
-nir = in_collection = in_collection.select('b4')
-swir1 = in_collection = in_collection.select('b5')
-swir2 = in_collection = in_collection.select('b6')
-dnbr = in_collection = in_collection.select('b7')
-ndii  = in_collection = in_collection.select('b8')
-ndvi = in_collection = in_collection.select('b9')
-preds = ee.ImageCollection("projects/gee-serdp-upload/assets/mtbs_predictions").select('b10')
-preds_thresh = ee.ImageCollection("projects/gee-serdp-upload/assets/mtbs_predictions").select('b11')
+red =  in_collection.select('b1')
+green =  in_collection.select('b2')
+blue =in_collection.select('b3')
+nir = in_collection.select('b4')
+swir1 = in_collection.select('b5')
+swir2 =  in_collection.select('b6')
+dnbr =  in_collection.select('b7')
+ndii  =  in_collection.select('b8')
+ndvi =  in_collection.select('b9')
+preds = in_collection.select('b10')
+preds_thresh = in_collection.select('b11')
 
 lfdb = ee.FeatureCollection("users/spotter/fire_cnn/raw/ak_mtbs_1985")
 
 dnbr_palette = cm.palettes.RdBu_r
+dndii_palette = cm.palettes.RdBu_r
+dndvi_palette = cm.palettes.RdYlGn_r
+red_palette = cm.palettes.Reds
+green_palette = cm.palettes.YlGn
+blue_palette = cm.palettes.PuBu
 
 
 Map.setCenter(-151.29, 65.11, 4)
 Map.addLayer(preds, {'min': 0, 'max': 1}, 'Predictions')
 Map.addLayer(preds_thresh, {'min': 0, 'max': 1}, 'Predictions Threshold')
+Map.addLayer(red, {min:0, max: 1, 'palette' : red_palette}, 'Red')
+Map.addLayer(green, {min:0, max: 1, 'palette' : green_palette}, 'Green')
+Map.addLayer(blue, {min:0, max: 1, 'palette' : blue_palette}, 'Blue')
+Map.addLayer(nir, {min:0, max: 1, 'palette' : dnbr_palette}, 'NIR')
+Map.addLayer(swir1, {min:0, max: 1, 'palette' : dnbr_palette}, 'SWIR1')
+Map.addLayer(swir2, {min:0, max: 1, 'palette' : dnbr_palette}, 'SWIR2')
+Map.addLayer(ndii, {min:0, max: 1, 'palette' : dndii_palette}, 'dNII')
+Map.addLayer(ndvi, {min:0, max: 1, 'palette' : dndvi_palette}, 'dNDVI')
 Map.addLayer(dnbr, {min:0, max: 1, 'palette' : dnbr_palette}, 'dNBR')
+
+
 Map.addLayer(lfdb, {}, 'Ground Truth MTBS Polygons')
 
 width = 950
