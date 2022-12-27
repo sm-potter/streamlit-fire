@@ -17,45 +17,45 @@ st.set_page_config(layout="wide")
 warnings.filterwarnings("ignore")
 
 
-@st.cache(persist=True)
-def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
-    geemap.ee_initialize(token_name=token_name)
+# @st.cache(persist=True)
+# def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
+#     geemap.ee_initialize(token_name=token_name)
 
-ee_authenticate(token_name="EARTHENGINE_TOKEN")
+# ee_authenticate(token_name="EARTHENGINE_TOKEN")
 
 
-# year = st.selectbox(
-#                     "Select Fire Year:",
-#                     [
-#                         "1985",
-#                         "1986",
-#                         "1987",
-#                         "1988",
-#                         "1999",
-#                         "2000",
-#                         "2001",
-#                         "2002",
-#                         "2003",
-#                         "2004",
-#                         "2005",
-#                         "2006",
-#                         "2007",
-#                         "2008",
-#                         "2009",
-#                         "2010",
-#                         "2011",
-#                         "2012",
-#                         "2013",
-#                         "2014",
-#                         "2015",
-#                         "2016",
-#                         "2017",
-#                         "2018",
-#                         "2019",
-#                         "2020"
-#                     ],
-#                     index=9,
-#                 )
+year = st.selectbox(
+                    "Select Fire Year:",
+                    [
+                        "1985",
+                        "1986",
+                        "1987",
+                        "1988",
+                        "1999",
+                        "2000",
+                        "2001",
+                        "2002",
+                        "2003",
+                        "2004",
+                        "2005",
+                        "2006",
+                        "2007",
+                        "2008",
+                        "2009",
+                        "2010",
+                        "2011",
+                        "2012",
+                        "2013",
+                        "2014",
+                        "2015",
+                        "2016",
+                        "2017",
+                        "2018",
+                        "2019",
+                        "2020"
+                    ],
+                    index=9,
+                )
 
 
 st.sidebar.title("About")
@@ -81,7 +81,7 @@ st.title("Alaska CNN Predictions")
 Map = geemap.Map()
 
 #read in the predictions and lfdb ground truth
-in_collection = ee.ImageCollection("projects/gee-serdp-upload/assets/mtbs_predictions")
+in_collection = ee.ImageCollection("projects/gee-serdp-upload/assets/mtbs_predictions").filterDate(year + '-01-01', year + '-12-31')
 
 red =  in_collection.select('b1')
 green =  in_collection.select('b2')
@@ -95,7 +95,7 @@ ndvi =  in_collection.select('b9')
 preds = in_collection.select('b10')
 preds_thresh = in_collection.select('b11')
 
-lfdb = ee.FeatureCollection("users/spotter/fire_cnn/raw/ak_mtbs_1985")
+lfdb = ee.FeatureCollection("users/spotter/fire_cnn/raw/ak_mtbs_1985").filter(ee.Filter.eq("Year", int(year)))
 
 dnbr_palette = cm.palettes.RdBu_r
 dndii_palette = cm.palettes.RdBu_r
@@ -118,8 +118,9 @@ Map.addLayer(ndii, {min:0, max: 1, 'palette' : dndii_palette}, 'dNII')
 Map.addLayer(ndvi, {min:0, max: 1, 'palette' : dndvi_palette}, 'dNDVI')
 Map.addLayer(dnbr, {min:0, max: 1, 'palette' : dnbr_palette}, 'dNBR')
 
-
-Map.addLayer(lfdb, {}, 'Ground Truth MTBS Polygons')
+styling = {'color': 'purple', 'fillColor': '00000000'};
+# Map.addLayer(table.style(styling))
+Map.addLayer(lfdb, styling, 'Ground Truth MTBS Polygons')
 
 width = 950
 height = 600
