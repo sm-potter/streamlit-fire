@@ -81,7 +81,7 @@ st.title("Alaska CNN Predictions")
 Map = geemap.Map()
 
 #read in the predictions and lfdb ground truth
-in_collection = ee.ImageCollection("projects/gee-serdp-upload/assets/mtbs_predictions").filterDate(year + '-01-01', year + '-12-31')
+in_collection = ee.ImageCollection("projects/gee-serdp-upload/assets/ak_predictions").filterDate(year + '-01-01', year + '-12-31')
 
 red =  in_collection.select('b1')
 green =  in_collection.select('b2')
