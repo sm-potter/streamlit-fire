@@ -54,7 +54,7 @@ year = st.selectbox(
                         "2019",
                         "2020"
                     ],
-                    index=9,
+                    index=20,
                 )
 
 
