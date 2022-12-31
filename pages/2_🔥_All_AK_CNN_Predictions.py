@@ -105,6 +105,7 @@ green_palette = cm.palettes.YlGn
 blue_palette = cm.palettes.PuBu
 
 Map.setCenter(-151.29, 65.11, 4)
+Map.add_basemap("HYBRID")
 Map.addLayer(preds, {'min': 0, 'max': 1}, 'Predictions')
 Map.addLayer(preds_thresh, {'min': 0, 'max': 1}, 'Predictions Threshold')
 Map.addLayer(red, {min:0, max: 1, 'palette' : red_palette}, 'Red')
